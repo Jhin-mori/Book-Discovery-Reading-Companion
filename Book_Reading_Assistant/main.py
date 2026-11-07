@@ -9,8 +9,12 @@ results = client.search_by_title(title)
 
 if results:
     for index, result in enumerate(results, start=1):
-        choice = int(input("Select a book number: "))
-        print(index, result.get("title"))
+        print(f"\n{index}. {result.get('title')}")
+
+        authors = result.get("author_name", [])
+        print(f"Author: {', '.join(authors) if authors else 'Unknown'}")
+
+        print(f"Publication Year: {result.get('first_publish_year', 'Unknown')}")
     first_book = results[choice -1]
 
     book = Book(
