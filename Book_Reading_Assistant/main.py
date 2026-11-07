@@ -15,6 +15,7 @@ if results:
         print(f"Author: {', '.join(authors) if authors else 'Unknown'}")
 
         print(f"Publication Year: {result.get('first_publish_year', 'Unknown')}")
+    choice = int(input("select a book number: "))
     first_book = results[choice -1]
 
     book = Book(
